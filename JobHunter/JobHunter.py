@@ -1,6 +1,6 @@
 # This script pulls from a job website and stores positions into a database. If there is a new posting it notifies the user.
-# Saeid Nahali
-# CNA330 11/14/2020
+# Mohammad Pakizeh Jam
+# CNA330 11/12/2020
 import mysql.connector
 import sys
 import json
@@ -12,8 +12,8 @@ from datetime import datetime
 # Connect to database
 # You may need to edit the connect function based on your local settings.
 def connect_to_sql():
-    conn = mysql.connector.connect(user='root', password='',
-                                  host='127.0.0.1',
+    conn = mysql.connector.connect(user='pythoneverything', password='python123',
+                                  host='18.216.19.4',
                                   database='cna330')
     return conn
 # Create the table structure
@@ -70,7 +70,7 @@ def delete_job(cursor, jobdetails):
 # Grab new jobs from a website
 def fetch_new_jobs(arg_dict):
     # Code from https://github.com/RTCedu/CNA336/blob/master/Spring2018/Sql.py
-    #query = "https://jobs.github.com/positions.json?" + "location=seattle" ## Add arguments here
+    query = "https://jobs.github.com/positions.json?" + "location=seattle" ## Add arguments here
     query = "https://jobs.github.com/positions.json?search=SQL&location=Remote"
     jsonpage = 0
     try:
